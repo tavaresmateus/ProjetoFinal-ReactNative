@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     position: "absolute",
     width: 319,
     height: 365,
-    top: 100,
+    top: 90,
     marginBottom: 20,
   },
 
@@ -32,16 +32,14 @@ export const styles = StyleSheet.create({
   explore: {
     position: "absolute",
     fontSize: 20,
-    left: 124,
-    top: 245,
+    top: 230,
   },
 
   exploreText: {
     position: "absolute",
-    top: 285,
+    top: 275,
     fontSize: 14,
     lineHeight: 20,
-    paddingLeft: 20,
   },
 
   botao: {
@@ -51,12 +49,13 @@ export const styles = StyleSheet.create({
     height: 48,
     top: 390,
     borderRadius: 10,
-
     alignItems: "center",
+ 
+    justifyContent: 'center',
   },
 
   botaoText: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: "bold",
     color: "white",
   },
