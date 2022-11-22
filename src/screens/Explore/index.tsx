@@ -30,7 +30,7 @@ export const Explore = () => {
                 
                 <TouchableOpacity
                 style={styles.botao}>
-                    <Text style={styles.botaoText}>Lets Start</Text> 
+                    <Text style={styles.botaoText}>Let's Start</Text> 
                 </TouchableOpacity>
 
             </View>
