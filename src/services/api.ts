@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 
 
- const apiEcommerce = axios.create({
-    baseURL: 'http://localhost:8080/',
+const apiEcommerce = axios.create({
+    baseURL: 'https://3a32-2804-56c-82b6-a600-84e8-8253-79ff-1fea.sa.ngrok.io/',
 });
 
 export interface listaProdutos {
@@ -18,7 +18,7 @@ interface getProdutosRespostaProps {
     results: listaProdutos[]
 }
 
-export function getProdutos(): Promise<AxiosResponse<getProdutosRespostaProps, any>> {
+export function getProdutos() {
     let url = `produto/`;
 
     return apiEcommerce.get(url);
@@ -49,5 +49,4 @@ export function getProdutoEspecifico(index: string): Promise<AxiosResponse<produ
     return apiEcommerce.get(url);
 };
 
-export default apiEcommerce;
 
