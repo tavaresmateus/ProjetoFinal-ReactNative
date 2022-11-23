@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 
 
 const apiEcommerce = axios.create({
-    baseURL: 'https://3a32-2804-56c-82b6-a600-84e8-8253-79ff-1fea.sa.ngrok.io/',
+    baseURL: 'https://9f14-2804-56c-82b6-a600-84e8-8253-79ff-1fea.sa.ngrok.io/',
 });
 
 export interface listaProdutos {

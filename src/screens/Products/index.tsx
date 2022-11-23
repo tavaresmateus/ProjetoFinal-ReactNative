@@ -36,9 +36,13 @@ export const Products = () => {
 
       <View style={styles.colunas}>
         <Image style={styles.imagePost} source={mengo} />
+        <Image style={styles.imagePost} source={mengo} />
+                <Image style={styles.imagePost} source={mengo} />
+
+
       </View>
 
-      <View style={styles.colunas}>
+      {/* <View style={styles.colunas}>
         <Image style={styles.imagePost2} source={mengo} />
       </View>
 
@@ -53,7 +57,7 @@ export const Products = () => {
       
       <View style={styles.colunas}>
         <Image style={styles.imagePost2} source={mengao} />
-      </View>
+      </View> */}
       </ImageBackground>
       
       <Text style={styles.text2}>Favoritos</Text>
