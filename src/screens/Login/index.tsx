@@ -1,13 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React,{useState} from 'react';
 import { Text, View, StatusBar, ImageBackground, TextInput, TouchableOpacity, Image } from 'react-native';
+import { useAuth } from '../../contexts/Auth';
 import { propsAuthStack } from '../../routes/AuthStack/Models';
 import { propsStack } from '../../routes/Stack/Models';
 import { styles } from "./styles";
 
 export const Login = () => {
-
-    
+    const {signIn} = useAuth();
+    const[email,setEmail]=useState("")
+    const[password,setPassword]=useState("")
 
     return(
         <>
@@ -25,11 +27,11 @@ export const Login = () => {
             
             <View style={styles.viewLogin}>
                 
-                <TextInput placeholder='Nome de usuario' style={styles.inputLogin} placeholderTextColor="grey"/>
+                <TextInput placeholder='Nome de usuario' style={styles.inputLogin} value={email}  placeholderTextColor="grey" onChangeText={setEmail}/>
                 
-                <TextInput placeholder='Senha' style={styles.inputLogin}  placeholderTextColor="grey"/>
+                <TextInput placeholder='Senha' style={styles.inputLogin} value={password} placeholderTextColor="grey" onChangeText={setPassword}/>
                 
-                <TouchableOpacity style={styles.buttonLogin}>
+                <TouchableOpacity style={styles.buttonLogin} onPress={() => signIn(email,password)}>
                 <Text style={styles.textButtonLogin}>
                     Entrar
                 </Text>

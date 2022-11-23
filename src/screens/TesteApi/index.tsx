@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native';
 import { getProdutos, listaProdutos } from '../../services/api'
+import { styles } from './styles';
 
 
 
@@ -15,6 +16,7 @@ export function Shopee() {
 
     function requisicaoListaProdutos() {
         getProdutos().then((res) => {
+            console.log(res.data)
             setListaProdutos(res.data)
         }).catch((err) => {
             console.log(err)
@@ -35,14 +37,17 @@ export function Shopee() {
             size={'large'}/>
             :
             <FlatList
-                
+
             data={listaProdutos}
             keyExtractor={item => item.index}
             renderItem={({item}) =>{
                 return (
-                   <Text>
+                   <View
+                   ><Text>
                     {item.nome}
-                   </Text>
+                    
+                    </Text><Image source={{uri:item.fotoLink} }style={styles.image} />
+                    </View>
                 )
             }}
             
