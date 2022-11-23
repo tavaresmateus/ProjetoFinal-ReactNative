@@ -59,7 +59,7 @@ export const Products = () => {
       <View style={styles.colunas}>
       <ModalProduct/>
         <Image style={styles.imagePost2} source={mengao} />
-      </View>
+      </View> 
       </ImageBackground>
       
       <Text style={styles.text2}>Favoritos</Text>

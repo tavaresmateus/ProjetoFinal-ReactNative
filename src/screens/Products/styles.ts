@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ffff",
-    paddingTop: 60,
+    paddingTop: 30,
   },
 
   bola1: {
@@ -25,11 +25,13 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     marginTop: 30,
+   
     
   },
 
   colunas: {
     flexDirection:"row",
+    backgroundColor: 'lightgray',
     
   },
 
