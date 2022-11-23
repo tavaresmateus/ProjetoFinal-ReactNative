@@ -11,7 +11,7 @@ const{Navigator, Screen} = createNativeStackNavigator<propsNavigationAuthStack>(
 
 export default function(){
     return(
-        <Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+        <Navigator initialRouteName="Explore" screenOptions={{headerShown: false}}>
             <Screen name="Explore" component={Explore}/>
             <Screen name="Login" component={Login}/>
         </Navigator>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, Text, View, TouchableOpacity } from 'react-native';
 import { getProdutos, listaProdutos } from '../../services/api'
 import { styles } from './styles';
-
+import { FontAwesome } from '@expo/vector-icons';
 
 
 export function Shopee() {
@@ -28,26 +28,39 @@ export function Shopee() {
 
     return (
 
-        <View>
-            <Text>
-                Loja de Produtos
-            </Text>
+        <View style={styles.container}>
+            
+            <FontAwesome name="shopping-bag" size={24} color="black" />
+            
+            <Text style={styles.NomeTela}>MarketPlace </Text>
             {carregando ?
             <ActivityIndicator
             size={'large'}/>
             :
-            <FlatList
-
+            <FlatList 
+            numColumns={2}
+            style={styles.listas}
+                
             data={listaProdutos}
             keyExtractor={item => item.index}
             renderItem={({item}) =>{
                 return (
-                   <View
-                   ><Text>
-                    {item.nome}
-                    
-                    </Text><Image source={{uri:item.fotoLink} }style={styles.image} />
-                    </View>
+                
+
+             
+                   <TouchableOpacity style={styles.cardProduct}>
+                   
+                   <Text style={styles.nomeProduto}>{item.nome}</Text>
+                    <Image style={styles.image}
+                     source={{uri:item.fotoLink} } />
+
+                     <Text style={styles.precoProduto}> R$ {item.valor},00</Text>
+
+                        </TouchableOpacity>
+                   
+
+                       
+              
                 )
             }}
             
