@@ -12,6 +12,7 @@ import { styles } from "../Products/styles";
 import mengo from "../../assets/imagens/fla1.png";
 import mengao from "../../assets/imagens/fla2.png";
 import { AntDesign } from "@expo/vector-icons";
+import { ModalProduct } from "../../components/Modais/ModalStats";
 
 export const Products = () => {
   return (
@@ -35,32 +36,34 @@ export const Products = () => {
       
 
       <View style={styles.colunas}>
+      <ModalProduct/>
         <Image style={styles.imagePost} source={mengo} />
-        <Image style={styles.imagePost} source={mengo} />
-                <Image style={styles.imagePost} source={mengo} />
-
-
       </View>
 
-      {/* <View style={styles.colunas}>
+      <View style={styles.colunas}>
+      <ModalProduct/>
         <Image style={styles.imagePost2} source={mengo} />
       </View>
 
       <View style={styles.colunas}>
+      <ModalProduct/>
         <Image style={styles.imagePost2} source={mengo} />
       </View>
 
       <View style={styles.colunas}>
+      <ModalProduct/>
         <Image style={styles.imagePost2} source={mengo} />
       </View>
 
       
       <View style={styles.colunas}>
+      <ModalProduct/>
         <Image style={styles.imagePost2} source={mengao} />
-      </View> */}
+      </View> 
       </ImageBackground>
       
       <Text style={styles.text2}>Favoritos</Text>
+            
     </View>
   );
 };
