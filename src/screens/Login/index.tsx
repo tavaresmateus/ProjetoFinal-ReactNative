@@ -1,8 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Text, View, StatusBar, ImageBackground, TextInput, TouchableOpacity, Image } from 'react-native';
+import { propsAuthStack } from '../../routes/AuthStack/Models';
+import { propsStack } from '../../routes/Stack/Models';
 import { styles } from "./styles";
 
 export const Login = () => {
+
+    
+
     return(
         <>
         <StatusBar
