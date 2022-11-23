@@ -16,6 +16,7 @@ export function Shopee() {
 
     function requisicaoListaProdutos() {
         getProdutos().then((res) => {
+            console.log(res.data)
             setListaProdutos(res.data)
         }).catch((err) => {
             console.log(err)
