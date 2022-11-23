@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
     },
     image:{
-        width: 370,
-        height: 200
+        width: 450,
+        height: 230,
     },
     title:{
         fontFamily: '',
