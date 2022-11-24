@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     nomeProduto:{
         paddingBottom: 4, 
         fontWeight: 'bold',
+        textAlign: 'center',
    
    },
    
@@ -29,6 +30,7 @@ export const styles = StyleSheet.create({
        paddingTop: 4, 
        fontWeight: 'bold',
        color: 'black',
+       textAlign: 'center',
    
    
    },
