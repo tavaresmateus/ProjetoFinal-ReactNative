@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       padding: 10,
       elevation: 2,
+      marginTop: 100,
       
     },
     
@@ -45,7 +46,8 @@ export const styles = StyleSheet.create({
     textStyle: {
       color: "white",
       fontWeight: "bold",
-      textAlign: "center",      
+      textAlign: "center", 
+      padding: 10,
     },
 
     modalText: {

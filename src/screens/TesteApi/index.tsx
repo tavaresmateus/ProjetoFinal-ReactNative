@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, FlatList, Image, Text, View, TouchableOpacity } from 'react-native';
-import { getProdutos, listaProdutos } from '../../services/api'
+import { getProdutos, listaProdutos, getProdutoEspecifico, produtoProps } from '../../services/api'
 import { styles } from './styles';
 import { FontAwesome } from '@expo/vector-icons';
-
+import { ProdutoCard } from '../../components/ProdutoCard';
+import { ModalProduct } from '../../components/Modais/ModalStats';
 
 export function Shopee() {
     const [carregando, setCarregando] = useState<boolean>(false);
     const [listaProdutos, setListaProdutos] = useState<listaProdutos[]>([]);
+    const [produtoEspecifico, setProdutoEspecifico] = useState<produtoProps>();
+    const [indexSelecionado, setIndexSelecionado] = useState<number>(0);
+    const [modal, setModal] = useState<boolean>(false);
+
+
 
 
     useEffect(() => {
@@ -16,7 +22,6 @@ export function Shopee() {
 
     function requisicaoListaProdutos() {
         getProdutos().then((res) => {
-            console.log(res.data)
             setListaProdutos(res.data)
         }).catch((err) => {
             console.log(err)
@@ -24,6 +29,9 @@ export function Shopee() {
             setCarregando(false);
         });
     }
+
+   
+    
 
 
     return (
@@ -42,29 +50,44 @@ export function Shopee() {
             style={styles.listas}
                 
             data={listaProdutos}
-            keyExtractor={item => item.index}
+            keyExtractor={item => item.id}
             renderItem={({item}) =>{
                 return (
                 
+                    <ProdutoCard
+                        produto={item}
+                        setIndexSelecionado={setIndexSelecionado}
+                        setModal={setModal}
+                        />
 
-             
-                   <TouchableOpacity style={styles.cardProduct}>
+
+
+                //    <TouchableOpacity style={styles.cardProduct}>
                    
-                   <Text style={styles.nomeProduto}>{item.nome}</Text>
-                    <Image style={styles.image}
-                     source={{uri:item.fotoLink} } />
+                //    <Text style={styles.nomeProduto}>{item.nome}</Text>
+                //     <Image style={styles.image}
+                //      source={{uri:item.fotoLink} } />
 
-                     <Text style={styles.precoProduto}> R$ {item.valor},00</Text>
+                //      <Text style={styles.precoProduto}> R$ {item.valor},00</Text>
 
-                        </TouchableOpacity>
+                //         </TouchableOpacity>
+
+
+            
                    
 
-                       
-              
+                     
                 )
             }}
             
-            />    
+            />   
+        }
+        {modal &&
+        <ModalProduct
+                id={indexSelecionado} modal={false} setModal={function (value: React.SetStateAction<boolean>): void {
+                    throw new Error('Function not implemented.');
+                } }       
+        />
         }
         </View>
  )
