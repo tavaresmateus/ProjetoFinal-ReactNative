@@ -1,89 +1,95 @@
-import React, { createContext, useState, FC, useEffect } from 'react';
+import React, { createContext, useEffect, useState } from "react";
+import { listaProdutos } from "../../services/api";
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { Products } from '../../screens/Products/index';
-
-interface ConxtextProps {
+interface ProvedorCarrinhoProps {
     children: React.ReactNode
 }
 
-export interface ICardContext {
-    productsList ?: productsList[],
-    addProducts: (magicItem: magicItemList) => void,
-    removeMagicItem: (index: string) => void,
-    precoTotal: number,
-};
+interface CarrinhoContextoProps {
+    listaProdutos: listaProdutos[];
+    salvaListaProdutos: (produto: listaProdutos) => void
+    precoTotal: number;
+    removeProdutoCarrinho: (id: number) => void
+}
 
-export const CartContext = createContext<ICardContext>({
-    magicItemList: [{
-        index: "",
-        name: "",
-        url: "",
+export const CarrinhoContexto = createContext<CarrinhoContextoProps>({
+    listaProdutos: [{
+        id: 0,
+        nome: "",
+        valor: 0,
+        fotoLink: '',
+
+
     }],
-    addMagicItem: (magicItem: magicItemList) => { },
-    removeMagicItem: (index: string) => { },
+    salvaListaProdutos: (produto: listaProdutos) => { },
     precoTotal: 0,
+    removeProdutoCarrinho: (id: number) => { },
 });
 
-// ver tipo children
-export const CartProvider = ( { children }  : ConxtextProps) => {
-    const [magicItemList, setMagicItemList] = useState<magicItemList[]>([]);
+export const ProvedorCarrinho = ({ children }: ProvedorCarrinhoProps) => {
+    const [listaProdutos, setListaProdutos] = useState<listaProdutos[]>([]);
     const [precoTotal, setPrecoTotal] = useState<number>(0);
 
-    const storeData = async (value: magicItemList[]) => {
-        try {
-            const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('@storage_Key', jsonValue)
-        } catch (e) {
-            // saving error
-        }
-    }
-    
-    const getData = async () => {
-        try {
-          const jsonValue = await AsyncStorage.getItem('@storage_Key')
-          return jsonValue != null ? JSON.parse(jsonValue) : null;
-        } catch(e) {
-          // error reading value
-        }
-      }
-
     useEffect(() => {
-        getData().then((res)=>{
-            setMagicItemList(res? res : []);
+        getData().then((res) => {
+            setListaProdutos(res ? res : [])
         })
-    },[])
+    }, [])
 
     useEffect(() => {
         let soma = 0;
-        magicItemList[0] && magicItemList.map((magicItem: magicItemList) => {
-            soma = soma + Number(magicItem.preco)
+        listaProdutos.length >= 1 && listaProdutos.map((produto: listaProdutos) => {
+            soma = soma + Number(produto.valor)
         });
         setPrecoTotal(soma);
-    }, [magicItemList]);
+    }, [listaProdutos])
 
-    const addMagicItem = (magicItem: magicItemList) => {
-        setMagicItemList([...magicItemList, magicItem]);
-        storeData([...magicItemList, magicItem])
+    const storeData = async (value: listaProdutos[]) => {
+        try {
+            const jsonValue = JSON.stringify(value)
+            await AsyncStorage.setItem('@itens_carrinho', jsonValue)
+        } catch (e) {
+            //saving error
+        }
+    }
+
+    const getData = async () => {
+        try {
+            const jsonValue = await AsyncStorage.getItem('@itens_carrinho')
+            return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch (e) {
+            // error readind value
+        }
+    }
+
+    function salvaListaProdutos(produto: listaProdutos) {
+        setListaProdutos([...listaProdutos, produto]);
+        storeData([...listaProdutos, produto])
     };
 
-    const removeMagicItem = (index: string) => {
-        let newMagicItemList =  magicItemList.filter((magicItemList: magicItemList) => {
-            return magicItemList.index !== index
+    function removeProdutoCarrinho(id : number) {
+        let novaListaProdutos = listaProdutos.filter((produto) =>{
+            return produto.id !== id
         })
-        setMagicItemList(newMagicItemList);
-        storeData(newMagicItemList);
-    };
+        setListaProdutos(novaListaProdutos)
+        storeData(novaListaProdutos)
 
-    return (
-        <CartContext.Provider
-            value={{
-                magicItemList,
-                addMagicItem,
-                removeMagicItem,
-                precoTotal
-            }}>
-            {children}
-        </CartContext.Provider>
-    );
-};
+        };
+
+        return (
+            <CarrinhoContexto.Provider
+                value={{
+                    listaProdutos,
+                    salvaListaProdutos,
+                    precoTotal,
+                    removeProdutoCarrinho
+                    
+                }}
+                >
+                    {children}
+            </CarrinhoContexto.Provider>
+        )
+    }
+

@@ -3,7 +3,6 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import { Explore } from "../../screens/Explore";
 import { Login } from "../../screens/Login";
-import {Home} from "../../screens/Home";
 import { propsNavigationAuthStack } from "./Models";
 import { Register } from "../../screens/Register";
 

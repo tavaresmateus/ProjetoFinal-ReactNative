@@ -5,17 +5,26 @@ import Route from "./src/routes";
 import { Register } from "./src/screens/Register";
 import { ModalProduct } from "./src/components/Modais/ModalStats"
 import { Products } from "./src/screens/Products";
-import { Shopee } from "./src/screens/TesteApi";
 import { AuthProvider } from "./src/contexts/Auth";
+import { Shopee } from "./src/screens/Home";
+import { Carrinho } from "./src/screens/Carrinho";
+import { ProvedorCarrinho } from "./src/contexts/CartContext";
 
 
 export default function App() {
   return (
-     //<AuthProvider>
-       //<Route/>
-     //</AuthProvider>
-    //<Shopee/>
-    <Register/>
+    
+     <AuthProvider>
+      <ProvedorCarrinho>
+       <Route/>
+       </ProvedorCarrinho>
+     </AuthProvider>
+   
+     
+
+
+    // <Carrinho/>
+
   )
 
 }
