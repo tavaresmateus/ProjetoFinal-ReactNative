@@ -10,7 +10,7 @@ export const Register = () => {
             <TextInput placeholder="Nome completo" />
             <TextInput placeholder="Nome completo" />
             <TextInput placeholder="Nome completo" />
-
+            <Text>Register!</Text>
             
         </ScrollView>
     )
