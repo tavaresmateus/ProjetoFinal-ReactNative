@@ -50,40 +50,28 @@ export function Shopee() {
                     style={styles.listas}
 
                     data={listaProdutos}
-                    // keyExtractor={item=> item.nome}
                     keyExtractor={(id, index) => index.toString()}
                     renderItem={({ item }) => {
                         return (
 
-                    // <ProdutoCard
-                    //     produto={item}
-                    //     setIndexSelecionado={setIndexSelecionado}
-                    //     setModal={setModal}
-                    //     />
+                            <ProdutoCard
+                                produto={item}
+                                setIndexSelecionado={setIndexSelecionado}
+                                setModal={setModal} 
+                              />
 
-
-
-                   <TouchableOpacity style={styles.cardProduct}>
-
-                   <Text style={styles.nomeProduto}>{item.nome}</Text>
-                    <Image style={styles.image}
-                     source={{uri:item.fotoLink} } />
-
-                     <Text style={styles.precoProduto}> R$ {item.valor},00</Text>
-
-                        </TouchableOpacity>
-
-
-            
-                   
-
-                     
-                )
+                        )
                     }}
 
                 />
             }
-           
+            {modal &&
+                <ModalProduct
+                    id={indexSelecionado} 
+                    modal={modal} 
+                    setModal={setModal}
+                     />
+            }
         </View>
     )
 
