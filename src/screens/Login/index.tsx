@@ -2,15 +2,17 @@ import { useNavigation } from '@react-navigation/native';
 import React,{useState} from 'react';
 import { Text, View, StatusBar, ImageBackground, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useAuth } from '../../contexts/Auth';
-import { propsAuthStack } from '../../routes/AuthStack/Models';
+import { propsAuthStack, propsNavigationAuthStack } from '../../routes/AuthStack/Models';
 import { propsStack } from '../../routes/Stack/Models';
 import { styles } from "./styles";
+import { Register } from '../Register';
 
 export const Login = () => {
     const {signIn} = useAuth();
     const[email,setEmail]=useState("")
     const[password,setPassword]=useState("")
 
+    const navigation = useNavigation();
     return(
         <>
         <StatusBar
@@ -34,7 +36,7 @@ export const Login = () => {
                 
                 <TextInput placeholder='Nome de usuario' style={styles.inputLogin} value={email}  placeholderTextColor="grey" onChangeText={setEmail}/>
                 
-                <TextInput placeholder='Senha' style={styles.inputLogin} value={password} placeholderTextColor="grey" onChangeText={setPassword}/>
+                <TextInput placeholder='Senha' style={styles.inputLogin} value={password} placeholderTextColor="grey" secureTextEntry onChangeText={setPassword}/>
                 
                 <TouchableOpacity style={styles.buttonLogin} onPress={() => signIn(email,password)}>
                 <Text style={styles.textButtonLogin}>
@@ -63,7 +65,7 @@ export const Login = () => {
                 <Text style={styles.registerText}>
                         Não tem cadastro?
                 </Text>            
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                     <Text style={styles.registerTextButton}>
                         Cadastrar
                     </Text>  

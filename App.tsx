@@ -13,12 +13,14 @@ import { ProvedorCarrinho } from "./src/contexts/CartContext";
 
 export default function App() {
   return (
-    <ProvedorCarrinho>
+    
      <AuthProvider>
+      <ProvedorCarrinho>
        <Route/>
+       </ProvedorCarrinho>
      </AuthProvider>
    
-     </ProvedorCarrinho>
+     
 
 
     // <Carrinho/>
