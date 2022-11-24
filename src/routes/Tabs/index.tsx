@@ -1,9 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home } from "../../screens/Home";
 import { Products } from "../../screens/Products";
 import { Register } from "../../screens/Register";
-import { Shopee } from "../../screens/TesteApi";
+import { Shopee } from "../../screens/Home";
 import { styles } from "../../screens/Explore/styles";
 
 import {Entypo, Feather} from "@expo/vector-icons"
@@ -38,7 +37,7 @@ export default function(){
                 }
                 }
                 />
-                <Tab.Screen name="Home" component={Home}
+                <Tab.Screen name="Register" component={Register}
                 options={{
                     tabBarIcon: ({size, color}) => (
                         <Feather name="shopping-cart" size={size} color={color}/>

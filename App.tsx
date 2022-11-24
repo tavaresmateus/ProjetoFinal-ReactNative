@@ -5,8 +5,8 @@ import Route from "./src/routes";
 import { Register } from "./src/screens/Register";
 import { ModalProduct } from "./src/components/Modais/ModalStats"
 import { Products } from "./src/screens/Products";
-import { Shopee } from "./src/screens/TesteApi";
 import { AuthProvider } from "./src/contexts/Auth";
+import { Shopee } from "./src/screens/Home";
 
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
      <AuthProvider>
        <Route/>
      </AuthProvider>
-    //<Shopee/>
+    // <Shopee/>
   )
 
 }
