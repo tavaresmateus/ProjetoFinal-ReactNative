@@ -6,6 +6,7 @@ import { Shopee } from "../../screens/Home";
 import { styles } from "../../screens/Explore/styles";
 
 import {Entypo, Feather} from "@expo/vector-icons"
+import { Carrinho } from "../../screens/Carrinho";
 
 export default function(){
     const Tab = createBottomTabNavigator();
@@ -37,7 +38,7 @@ export default function(){
                 }
                 }
                 />
-                <Tab.Screen name="Register" component={Register}
+                <Tab.Screen name="Carrinho" component={Carrinho}
                 options={{
                     tabBarIcon: ({size, color}) => (
                         <Feather name="shopping-cart" size={size} color={color}/>

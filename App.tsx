@@ -7,14 +7,22 @@ import { ModalProduct } from "./src/components/Modais/ModalStats"
 import { Products } from "./src/screens/Products";
 import { AuthProvider } from "./src/contexts/Auth";
 import { Shopee } from "./src/screens/Home";
+import { Carrinho } from "./src/screens/Carrinho";
+import { ProvedorCarrinho } from "./src/contexts/CartContext";
 
 
 export default function App() {
   return (
+    <ProvedorCarrinho>
      <AuthProvider>
        <Route/>
      </AuthProvider>
-    // <Shopee/>
+   
+     </ProvedorCarrinho>
+
+
+    // <Carrinho/>
+
   )
 
 }
