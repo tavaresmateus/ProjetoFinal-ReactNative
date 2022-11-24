@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View, ModalProps, ActivityIndicator } from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View, ModalProps, ActivityIndicator, Image } from "react-native";
 import { styles } from './styles';
 import { getProdutoEspecifico, produtoProps } from '../../../services/api'
 
@@ -53,8 +53,17 @@ export const ModalProduct = ({id, modal,setModal, ...rest } : ModalProductProps)
             :
             <>
 
-            <View>
-            <Text style={styles.modalText}> Produto:{produtoEspecifico.nome} </Text>
+            <View style={styles.popUp}>
+            <Image style={styles.image} 
+                 source={{uri: produtoEspecifico.fotoLink}}/>
+
+            <Text style={styles.modalTextNome}> Produto: {produtoEspecifico.nome} </Text>
+            <Text style={styles.modalTextDescricao}> Descrição: {produtoEspecifico.descricao} </Text>
+
+            <Text style={styles.modalTextQtd}> Quantidade estoque: {produtoEspecifico.qtdEstoque} </Text>
+            <Text style={styles.modalTextValor}> Valor: R$ {produtoEspecifico.valor},00 </Text>
+
+
 
             </View>
             <Pressable

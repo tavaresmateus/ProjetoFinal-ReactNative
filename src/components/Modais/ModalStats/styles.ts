@@ -7,20 +7,19 @@ export const styles = StyleSheet.create({
     centeredView: {
       
       justifyContent: "center",
-      alignItems: "center",
-      marginTop: 22,
+      backgroundColor: 'rgba(0, 0, 0, 0.4)',
+      height: '100%',
     },
     modalView: {
-      margin: 20,
+      margin: 10,
       
-      backgroundColor: "white",
+      backgroundColor: "#FCFCFC",
       borderRadius: 20,
-      padding: 80,
-      marginTop: 200,      
-      shadowColor: "#000",
+      padding: 60,
+      shadowColor: "#000000",
       shadowOffset: {
         width: 0,
-        height: 2,
+        height: 10,
       },
       shadowOpacity: 8,
       shadowRadius: 4,
@@ -30,31 +29,67 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       padding: 10,
       elevation: 2,
-      marginTop: 100,
+      marginTop: 50,
       
     },
     
-    buttonOpen: {
-      backgroundColor: "green",
-      marginLeft: 5,
-            
-    },
+    
     buttonClose: {
-      backgroundColor: "grey",
+      backgroundColor: "green",
       shadowOpacity: 5,
     },
     textStyle: {
       color: "white",
       fontWeight: "bold",
       textAlign: "center", 
-      padding: 10,
+      padding: 5,
     },
 
-    modalText: {
-      marginBottom: 15,
-      textAlign: "center",
-      position: "relative",   
-      fontWeight: "bold",
+    popUp:{
+      justifyContent: "center",
+      alignItems: 'center',
+
+    },
+
+   
+
+    modalTextNome:{
+      marginTop: 40,  
+      fontSize: 20,
+      fontWeight: 'bold',
+      textAlign: 'center',
+
+
+    },
+
+    modalTextDescricao:{
+        textAlign: 'center',
+        fontSize: 20,
+        marginTop: 5,
+
+
+    },
+
+    modalTextQtd:{
+        fontSize: 20,
+        marginTop: 5,
+    },
+    
+    modalTextValor:{
+      marginTop: 40,
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: 'red',
+    },
+
+    image: {
+      width: 190,
+      height: 170,
+      borderRadius: 10,
+      alignContent: 'center',
+      justifyContent: 'center',
+     
       
-    }
+    
+    },
   });

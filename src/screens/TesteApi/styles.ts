@@ -5,8 +5,7 @@ export const styles = StyleSheet.create({
       flex : 1,
       paddingTop: 50,
       alignItems: 'center',
-      backgroundColor: 'lightgreen',
-      opacity: 0.9,
+      backgroundColor: '#81FBB8',
      
     },
 
