@@ -13,7 +13,7 @@ interface ModalProductProps extends ModalProps {
 
 }
 
-export const ModalProduct = ({id, ...rest } : ModalProductProps) => {
+export const ModalProduct = ({id, modal,setModal, ...rest } : ModalProductProps) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [produtoEspecifico, setProdutoEspecifico] = useState<produtoProps>();
@@ -22,12 +22,10 @@ export const ModalProduct = ({id, ...rest } : ModalProductProps) => {
   useEffect(() => {
 
     getProdutoEspecifico(id).then((res) => {
-        console.log(res.data);
-      
         setProdutoEspecifico(res.data)
     
     }).catch((err) => {
-      console.log(err);
+      console.log(setProdutoEspecifico);
     }).finally(() => {
       setCarregando(false)
     })
@@ -41,10 +39,9 @@ export const ModalProduct = ({id, ...rest } : ModalProductProps) => {
       <Modal
         animationType="slide"
         transparent={true}
-        visible={modalVisible}
+        visible={modal}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+          setModal(!modal);
         }}
         {...rest}
       >
@@ -57,12 +54,12 @@ export const ModalProduct = ({id, ...rest } : ModalProductProps) => {
             <>
 
             <View>
-            <Text style={styles.modalText}> Produto:{produtoEspecifico.descricao} </Text>
+            <Text style={styles.modalText}> Produto:{produtoEspecifico.nome} </Text>
 
             </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
+              onPress={() => setModal(false)}
               >
               <Text style={styles.textStyle}>X</Text>
             </Pressable>
@@ -71,12 +68,12 @@ export const ModalProduct = ({id, ...rest } : ModalProductProps) => {
           </View>
         </View>
       </Modal>
-      <Pressable
+      {/* <Pressable
       style={[styles.button, styles.buttonOpen]}
       onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.textStyle}>Descrição:</Text>
-      </Pressable>
+        <Text style={styles.textStyle}>Ver mais</Text>
+      </Pressable> */}
   
     </View>
   );
