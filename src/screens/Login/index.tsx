@@ -20,10 +20,15 @@ export const Login = () => {
         <View style={styles.container}>
             
             <View>
-                 <ImageBackground source={require("../../assets/imgs/elipse.png")} style={styles.image}><Text>Login Account</Text></ImageBackground>
+                 <ImageBackground source={require("../../assets/imgs/elipse.png")} style={styles.image}>
+                 
+                 <View style={styles.boxImageTitle}>
+                    <Image source={require("../../assets/imgs/serrashop.png")} style={styles.imageTitle}/>
+                </View></ImageBackground>
             </View>
 
-            <Text style={styles.title}>SERRA </Text>
+            
+            
             
             <View style={styles.viewLogin}>
                 
