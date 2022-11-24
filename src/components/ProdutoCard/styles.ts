@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 
     
     nomeProduto:{
-        paddingBottom: 4, 
+        paddingBottom: 5, 
         fontWeight: 'bold',
         textAlign: 'center',
    
