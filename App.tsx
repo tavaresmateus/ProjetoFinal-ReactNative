@@ -11,9 +11,10 @@ import { AuthProvider } from "./src/contexts/Auth";
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Route/>
-    </AuthProvider>
+    // <AuthProvider>
+    //   <Route/>
+    // </AuthProvider>
+    <Shopee/>
   )
 
 }
