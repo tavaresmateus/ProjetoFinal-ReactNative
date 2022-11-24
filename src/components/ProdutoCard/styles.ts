@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
    
        cardProduct: {
                    
-           padding: 10,
+           padding: 15,
            justifyContent: 'center',
            marginBottom: 10,
            
