@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import { StatusBar } from "expo-status-bar"
 import React, { useState } from "react"
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native"
@@ -7,11 +8,14 @@ import { styles } from "./style"
 export const Register = () => {
     const[nome, setnome] = useState<string>("");
     const[cpf, setcpf] = useState<string>("");
-    
+    const navigate = useNavigation();
     return(
         <View style={styles.container}> 
         
             <View style={styles.boxTitle}>
+                {/* <TouchableOpacity onPress={() => navigate.goBack()}>
+                    <Text>Voltar</Text>
+                </TouchableOpacity> */}
                 <Text style={{fontSize:20}}>
                     CADASTRO
                 </Text>

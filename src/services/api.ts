@@ -1,4 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import axios, { AxiosResponse } from 'axios';
+import { Alert } from 'react-native';
 import { Toast } from 'toastify-react-native';
 
 const apiEcommerce = axios.create({
@@ -48,14 +50,17 @@ const state = {
     cpf: "",
     nome: ""
 }
+
 export const onRequest = async (nome:string, cpf:string) =>  {
     state.nome = nome;
     state.cpf = cpf;
+    
     try {
          const res = await apiEcommerce.post(`funcionario/`, {...state})
          console.log(res.data);
-        
+         Alert.alert('Mensagem', 'cadastro realizado com sucesso!')
          return res.data
+         
     } catch (error) {
         console.log('erro: ', error)        
     }
