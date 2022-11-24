@@ -63,6 +63,7 @@ export const onRequest = async (nome:string, cpf:string) =>  {
          
     } catch (error) {
         console.log('erro: ', error)        
+        Alert.alert('Mensagem', 'Digite os dados corretamente')
     }
 }
 
