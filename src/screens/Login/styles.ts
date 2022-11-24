@@ -10,6 +10,15 @@ export const styles = StyleSheet.create({
         width: 450,
         height: 230,
     },
+    boxImageTitle:{
+        marginTop: 70,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    imageTitle:{
+        width: 287,
+        height: 55,
+    },
     title:{
         fontFamily: '',
         fontWeight: '300'
