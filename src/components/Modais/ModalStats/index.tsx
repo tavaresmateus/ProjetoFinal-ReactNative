@@ -21,7 +21,7 @@ export const ModalProduct = ({id, ...rest } : ModalProductProps) => {
 
   useEffect(() => {
 
-    getProdutoEspecifico(2).then((res) => {
+    getProdutoEspecifico(id).then((res) => {
         console.log(res.data);
       
         setProdutoEspecifico(res.data)

@@ -30,47 +30,48 @@ export function Shopee() {
         });
     }
 
-   
-    
+
+
 
 
     return (
 
         <View style={styles.container}>
-            
+
             <FontAwesome name="shopping-bag" size={24} color="black" />
-            
+
             <Text style={styles.NomeTela}>MarketPlace </Text>
             {carregando ?
-            <ActivityIndicator
-            size={'large'}/>
-            :
-            <FlatList 
-            numColumns={2}
-            style={styles.listas}
-                
-            data={listaProdutos}
-            keyExtractor={item => item.id}
-            renderItem={({item}) =>{
-                return (
-                
-                    <ProdutoCard
-                        produto={item}
-                        setIndexSelecionado={setIndexSelecionado}
-                        setModal={setModal}
-                        />
+                <ActivityIndicator
+                    size={'large'} />
+                :
+                <FlatList
+                    numColumns={2}
+                    style={styles.listas}
+
+                    data={listaProdutos}
+                    // keyExtractor={item=> item.nome}
+                    keyExtractor={(id, index) => index.toString()}
+                    renderItem={({ item }) => {
+                        return (
+
+                    // <ProdutoCard
+                    //     produto={item}
+                    //     setIndexSelecionado={setIndexSelecionado}
+                    //     setModal={setModal}
+                    //     />
 
 
 
-                //    <TouchableOpacity style={styles.cardProduct}>
-                   
-                //    <Text style={styles.nomeProduto}>{item.nome}</Text>
-                //     <Image style={styles.image}
-                //      source={{uri:item.fotoLink} } />
+                   <TouchableOpacity style={styles.cardProduct}>
 
-                //      <Text style={styles.precoProduto}> R$ {item.valor},00</Text>
+                   <Text style={styles.nomeProduto}>{item.nome}</Text>
+                    <Image style={styles.image}
+                     source={{uri:item.fotoLink} } />
 
-                //         </TouchableOpacity>
+                     <Text style={styles.precoProduto}> R$ {item.valor},00</Text>
+
+                        </TouchableOpacity>
 
 
             
@@ -78,18 +79,12 @@ export function Shopee() {
 
                      
                 )
-            }}
-            
-            />   
-        }
-        {modal &&
-        <ModalProduct
-                id={indexSelecionado} modal={false} setModal={function (value: React.SetStateAction<boolean>): void {
-                    throw new Error('Function not implemented.');
-                } }       
-        />
-        }
+                    }}
+
+                />
+            }
+           
         </View>
- )
+    )
 
 }

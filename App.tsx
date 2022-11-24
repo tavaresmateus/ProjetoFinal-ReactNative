@@ -14,7 +14,7 @@ export default function App() {
     // <AuthProvider>
     //   <Route/>
     // </AuthProvider>
-    <ModalProduct modal={undefined} setModal={undefined} index={undefined}/>
+    <Shopee/>
   )
 
 }
